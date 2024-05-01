@@ -4,6 +4,7 @@ import Home from "./routes/Home"
 import Subjects from "./routes/Subjects"
 import Trending from "./routes/Trending"
 
+
 import './App.scss'
 
 function App() {

@@ -1,7 +1,9 @@
+
+
 const Subjects = () => {
     return (
         <div>
-    <h1>Subjects</h1>;
+    <h1>Subjects</h1>
     <h2>Animals</h2>
     <ul>
         <li>a</li>
