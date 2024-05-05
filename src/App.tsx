@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from "./routes/Nav"
 import Home from "./routes/Home"
 import Subjects from "./routes/Subjects"
-import About from "./routes/About"
+import Trending from "./routes/Trending";
+import BookInfo from "./routes/BookInfo";
 
 
 import './App.scss'
@@ -13,8 +14,9 @@ function App() {
       <Routes>
       <Route path="/" element={<Nav />}>
       <Route index element={<Home />} />
+      <Route path="/bookinfo/:id" element={<BookInfo />} />
           <Route path="subjects" element={<Subjects />} />
-          <Route path="about" element={<About />} />
+          <Route path="trending" element={<Trending />} />
       </Route>
       </Routes>
     </BrowserRouter>

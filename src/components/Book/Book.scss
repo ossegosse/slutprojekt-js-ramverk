@@ -1,9 +1,8 @@
 .card {
-width: 200px;
+width: 300px;
 min-height: 250px;
 display: flex;
 flex-direction: column;
-justify-content: space-between;
 align-items: center;
 
     .card-banner {
@@ -20,4 +19,5 @@ align-items: center;
 
 img:hover {
     transform: scale(1.05);
+    cursor: pointer;
 }

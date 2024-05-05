@@ -1,8 +1,9 @@
 import { Outlet, Link } from "react-router-dom";
-
 const Nav = () => {
     return (
       <>
+        <header className="header">
+          <h1>Library</h1>
         <nav>
           <ul>
             <li>
@@ -12,10 +13,11 @@ const Nav = () => {
               <Link to="/subjects">Subjects</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/trending">Trending</Link>
             </li>
           </ul>
         </nav>
+        </header>
   
         <Outlet />
       </>

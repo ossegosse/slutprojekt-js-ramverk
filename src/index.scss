@@ -1,5 +1,17 @@
-.books-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3rem;
+@import "/src/components/Scss/fonts";
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
+
+body {
+    font-family: $primary-font;
+    /* background-image: url(https://images.unsplash.com/photo-1531988042231-d39a9cc12a9a?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGJvb2tzfGVufDB8fDB8fHww);
+    background-size: cover;
+    position: absolute; */
+}
+

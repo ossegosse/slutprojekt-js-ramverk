@@ -1,4 +1,51 @@
-/* #root {
-  
-} */
+.header {
+    padding: 1rem 3rem 1rem 3rem;
+    background-color: #2F4858;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+        font-size: 3em;
+        color: white;
+    }
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        font-size: 1.2em;
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+}
 
+.main-home {
+    align-items: center;
+    justify-content: center;
+    color: black;
+    text-align: center;
+    .search-container {
+        margin: 3rem 0 3rem 0;
+        input {
+            margin: 2rem 0 2rem 0;
+        }
+        input:focus {
+            border-color: black; 
+            box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+            outline: none; 
+        }
+    }
+    
+}
+
+.books-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
