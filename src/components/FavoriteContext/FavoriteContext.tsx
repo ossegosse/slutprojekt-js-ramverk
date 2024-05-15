@@ -3,6 +3,8 @@ import React, { createContext, useState, ReactNode } from "react";
 interface Book {
     id: string;
     title: string;
+    author: string[];
+    coverId?: number;
 }   
 
 interface FavoriteContextType {
@@ -23,7 +25,6 @@ export const FavoriteContext = createContext<FavoriteContextType>({
     markAsRead: () => {},
 });
 
-
 export const FavoriteContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [favoriteBooks, setFavoriteBooks] = useState<Book[]>([]);
     const [booksRead, setBooksRead] = useState<Book[]>([]);
@@ -38,8 +39,11 @@ export const FavoriteContextProvider: React.FC<{ children: ReactNode }> = ({ chi
     };
 
     const markAsRead = (book: Book) => {
-        setBooksRead(prevBooksRead => [...prevBooksRead, book])
-    }
+        const isAlreadyRead = booksRead.some(readBook => readBook.id === book.id);
+        if (!isAlreadyRead) {
+            setBooksRead(prevBooksRead => [...prevBooksRead, book]);
+        }
+    };
 
     return (
         <FavoriteContext.Provider value={{ favoriteBooks, booksRead, setFavoriteBooks, setBooksRead, toggleFavorite, markAsRead }}>

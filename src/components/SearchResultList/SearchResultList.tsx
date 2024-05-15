@@ -5,7 +5,7 @@ import BookCard from "../BookCard/BookCard";
 
 const SearchResultList = () => {
   const { searchResults } = useContext(SearchContext);
-  const { toggleFavorite, markAsRead } = useContext(FavoriteContext); // Hämta både toggleFavorite och markAsRead från FavoriteContext
+  const { toggleFavorite, markAsRead } = useContext(FavoriteContext);
 
   return (
     <div className="books-container">
@@ -15,12 +15,11 @@ const SearchResultList = () => {
             key={index}
             title={book.title}
             author={Array.isArray(book.author) ? book.author : []}
-            coverId={book.coverId}
+            coverId={book.coverId ?? undefined}
             id={book.id}
           />
-          {/* Skicka bok-ID till toggleFavorite och markAsRead istället för hela boken */}
-          <button onClick={() => toggleFavorite(book.id)}>Favorite</button>
-          <button onClick={() => markAsRead(book.id)}>Have read</button>
+          <button onClick={() => toggleFavorite(book)}>Favorite</button>
+          <button onClick={() => markAsRead(book)}>Have read</button>
         </div>
       ))}
     </div>
@@ -28,5 +27,6 @@ const SearchResultList = () => {
 };
 
 export default SearchResultList;
+
 
 

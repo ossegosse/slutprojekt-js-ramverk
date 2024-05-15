@@ -1,14 +1,14 @@
 import "./BookCard.scss";
 import useFetchId from "../../hooks/useFetchId";
 
-interface BookProps {
-  id: string;
+interface BookCardProps {
   title: string;
-  author?: string[]; // Gör author-egenskapen valfri och en array av strängar
-  coverId?: number; // Gör coverId-egenskapen valfri och en siffra
+  author: string[];
+  coverId?: number;
+  id: string;
 }
 
-const Book: React.FC<BookProps> = ({ id, title, author, coverId }) => {
+const BookCard: React.FC<BookCardProps> = ({ title, author, coverId, id }) => {
   const bookData = useFetchId(id);
   console.log(id)
   if (!id) {
@@ -48,7 +48,7 @@ const Book: React.FC<BookProps> = ({ id, title, author, coverId }) => {
   );
 };
 
-export default Book;
+export default BookCard;
 
 /* import React, { useEffect, useState } from "react";
 import "./BookCard.scss"

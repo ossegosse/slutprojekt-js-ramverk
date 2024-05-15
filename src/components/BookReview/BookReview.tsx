@@ -13,9 +13,11 @@ const BookReview = () => {
         <div className="favorite-books-list">
           {booksRead.map((book, index) => ( // Korrekt användning av map-parametrar
             <BookCard
-              key={index} // Du kan behålla nyckeln som index om varje bok är unik
-              title={book.title}
-              id={book.id}
+            key={index}
+            title={book.title}
+            author={book.author}
+            coverId={book.coverId}
+            id={book.id}
             />
           ))}
         </div>
