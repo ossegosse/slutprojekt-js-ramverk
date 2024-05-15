@@ -38,10 +38,13 @@
 }
 
 .favorite-icon {
-    fill: black;
-    background-color: black;
-    color: white; /* Byt ut "black" mot den färg du vill använda */
+    font-size: 1.2em;
   }
+.favorite-icon:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+    transition: 0.5s;
+}
 
 .books-container {
     display: flex;

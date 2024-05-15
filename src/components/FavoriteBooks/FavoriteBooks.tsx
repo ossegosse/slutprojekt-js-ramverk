@@ -5,6 +5,7 @@ import "./FavoriteBooks.scss";
 
 const FavoriteBooks = () => {
   const { favoriteBooks } = useContext(FavoriteContext);
+  
 
   console.log(favoriteBooks);
   return (

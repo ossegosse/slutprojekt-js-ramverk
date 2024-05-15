@@ -71,7 +71,15 @@ const SearchResultList = () => {
   return (
     <div className="books-container">
       {searchResults && searchResults.map((book, index) => (
-        <div key={index}>
+        <div  className="card">
+          <div className="icons-container">
+          {isFavorite(book.id) ? (
+            <MdFavorite onClick={() => handleToggleFavorite(book)} className="favorite-icon"/>
+          ) : (
+            <MdFavoriteBorder onClick={() => handleToggleFavorite(book)} className="favorite-icon"/>
+          )}
+          <button onClick={() => markAsRead(book)}>Have read</button>
+          </div>
           <BookCard
             key={index}
             title={book.title}
@@ -79,12 +87,7 @@ const SearchResultList = () => {
             coverId={book.coverId ?? undefined}
             id={book.id}
           />
-          {isFavorite(book.id) ? (
-            <MdFavorite onClick={() => handleToggleFavorite(book)} />
-          ) : (
-            <MdFavoriteBorder onClick={() => handleToggleFavorite(book)} />
-          )}
-          <button onClick={() => markAsRead(book)}>Have read</button>
+          
         </div>
       ))}
     </div>
