@@ -1,15 +1,14 @@
 
-# Uppgiftsbeskrivning:
-- Open Library, bygga en webbtjänst för boknördar.
-- Slår upp information, visar information. Interagerar med mitt global state!
-- Räcker med att visa upp titel och författare! Bestäm vad mer som ska visas upp, om man vill!
-- Sökfunktion
+# App description
+A search engine for books and authors with data from OpenLibrary.org!
+Here you can search for your favourite books and authors, add books to favorites and mark them if you've read them and add reviews and ratings!
 
-# 1: Clone the repository
-# 2: npm install
-# 3: npm run dev
+# How to install and use the app
+1: Clone the repository
+2: npm install
+3: npm run dev
 
-Stack: 
-- Typescript
+# Stack: 
 - React
+- Typescript
 - SCSS
