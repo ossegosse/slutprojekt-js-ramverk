@@ -8,10 +8,9 @@ const FavoriteBooks = () => {
 
   console.log(favoriteBooks);
   return (
-    <div className="favorite-books-container">
-      <h2>Favorite Books</h2>
+    <div>
       {favoriteBooks.length > 0 ? (
-        <div className="favorite-books-list">
+        <div className="books-container">
           {favoriteBooks.map((book, index) => (
             <BookCard
               key={index}

@@ -5,7 +5,9 @@ interface Book {
     title: string;
     author: string[];
     coverId?: number;
-}   
+    review?: string;
+    rating?: number;
+}
 
 interface FavoriteContextType {
     favoriteBooks: Book[];
@@ -14,6 +16,7 @@ interface FavoriteContextType {
     setBooksRead: React.Dispatch<React.SetStateAction<Book[]>>; 
     toggleFavorite: (book: Book) => void;
     markAsRead: (book: Book) => void;
+    addReview: (id: string, review: string, rating: number) => void;
 }
 
 export const FavoriteContext = createContext<FavoriteContextType>({
@@ -23,6 +26,7 @@ export const FavoriteContext = createContext<FavoriteContextType>({
     setBooksRead: () => {},
     toggleFavorite: () => {},
     markAsRead: () => {},
+    addReview: () => {},
 });
 
 export const FavoriteContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -45,8 +49,16 @@ export const FavoriteContextProvider: React.FC<{ children: ReactNode }> = ({ chi
         }
     };
 
+    const addReview = (id: string, review: string, rating: number) => {
+        setBooksRead(prevBooksRead => 
+            prevBooksRead.map(book => 
+                book.id === id ? { ...book, review, rating } : book
+            )
+        );
+    };
+
     return (
-        <FavoriteContext.Provider value={{ favoriteBooks, booksRead, setFavoriteBooks, setBooksRead, toggleFavorite, markAsRead }}>
+        <FavoriteContext.Provider value={{ favoriteBooks, booksRead, setFavoriteBooks, setBooksRead, toggleFavorite, markAsRead, addReview }}>
             {children}
         </FavoriteContext.Provider>
     );
