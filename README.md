@@ -12,3 +12,5 @@ Here you can search for your favourite books and authors, add books to favorites
 - React
 - Typescript
 - SCSS
+
+// Ossian
