@@ -1,6 +1,6 @@
 
 # App description
-A search engine for books and authors with data from OpenLibrary.org!
+A search engine containing books and authors with data from OpenLibrary.org API!
 Here you can search for your favourite books and authors, add books to favorites and mark them if you've read them and add reviews and ratings!
 
 # How to install and use the app
