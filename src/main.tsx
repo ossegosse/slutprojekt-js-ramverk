@@ -1,13 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.tsx";
 import { SearchContextProvider } from "./components/searchContext.tsx/SearchContext.tsx";
-import './index.scss'
+import { FavoriteContextProvider } from "./components/FavoriteContext/FavoriteContext.tsx";
+import "./index.scss";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <SearchContextProvider>
-    <App />
+      <FavoriteContextProvider>
+        <App />
+      </FavoriteContextProvider>
     </SearchContextProvider>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);

@@ -10,10 +10,10 @@ const Nav = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/subjects">Subjects</Link>
+              <Link to="/favorites">Favorites</Link>
             </li>
             <li>
-              <Link to="/trending">Trending</Link>
+              <Link to="/mybooks">My Books</Link>
             </li>
           </ul>
         </nav>

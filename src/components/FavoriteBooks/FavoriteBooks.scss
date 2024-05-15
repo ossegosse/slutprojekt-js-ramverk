@@ -1,0 +1,15 @@
+.favourite-container {
+    width: 30rem;
+    padding: 2rem;
+    border: solid black 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    ul {
+        
+        li {
+            font-size: 1.3em;
+            margin-bottom: 1rem;
+        }
+    }
+}

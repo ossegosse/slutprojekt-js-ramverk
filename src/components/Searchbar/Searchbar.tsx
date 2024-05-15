@@ -1,4 +1,56 @@
-import { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
+import useFetchData from "../../hooks/useFetchData";
+import "./Searchbar.scss";
+
+const Searchbar = () => {
+  const [input, setInput] = useState("");
+  const { fetchData, loading } = useFetchData();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (input.trim() !== "") {
+      fetchData(input);
+    } else {
+      setSearchResults([]);
+    }
+  };
+
+  const handleChange = (value: string) => {
+    setInput(value);
+  };
+
+  return (
+    <div className="searchbar-container">
+      <form onSubmit={handleSubmit}>
+        <input
+          className="searchbar"
+          type="search"
+          placeholder="author, title..."
+          value={input}
+          onChange={(e) => handleChange(e.target.value)}
+        />
+        <button type="submit">Search</button>
+      </form>
+      {loading && (
+        <div className="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Searchbar;
+
+
+/* import { useState, useEffect, useContext } from "react";
 import { SearchContext } from "../searchContext.tsx/SearchContext";
 import "./Searchbar.scss"
 
@@ -9,20 +61,20 @@ const Searchbar = () => {
 
   const fetchData = (value: string) => {
     setLoading(true);
-    fetch(`https://openlibrary.org/search.json?q=${value}&limit=10&page=1`)
+    fetch(`https://openlibrary.org/search.json?q=${value}&limit=12`)
       .then((res) => res.json())
       .then((json) => {
         if (json.docs && Array.isArray(json.docs)) {
           const results = json.docs.map((book) => ({
-            id: book.key,
+            id: book.key.split("/").pop(),
             title: book.title,
-            authors: book.author_name,
+            author: book.author_name || [],
             coverId: book.cover_i,
           }));
           console.log(results);
-          setSearchResults(results); // Uppdatera sökresultaten med din context
+          setSearchResults(results);
         } else {
-          console.error("invalid data format recieved");
+          console.error("invalid data format received");
         }
         setLoading(false);
       })
@@ -31,30 +83,36 @@ const Searchbar = () => {
         setLoading(false);
       });
   };
-
-  useEffect(() => {
+  
+  const handleSubmit = ( e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (input.trim() !== "") {
-      fetchData(input);
+      fetchData(input)
     } else {
-      setSearchResults([]); // Återställ sökresultaten till tom när input är tom
+      setSearchResults([])
     }
-  }, [input]);
+  }
 
   const handleChange = (value: string) => {
     setInput(value);
   };
 
   return (
-    <div>
+    <div className="searchbar-container">
+      <form onSubmit={handleSubmit}> 
       <input
         className="searchbar"
         type="search"
-        placeholder="search"
+        placeholder="author, title..."
         value={input}
         onChange={(e) => handleChange(e.target.value)}
       />
+      <button type="submit">Search</button>
+      </form>
+      {loading && <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>}
     </div>
   );
 };
 
-export default Searchbar;
+export default Searchbar; */
+

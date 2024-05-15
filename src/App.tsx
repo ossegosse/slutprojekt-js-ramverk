@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from "./routes/Nav"
 import Home from "./routes/Home"
-import Subjects from "./routes/Subjects"
-import Trending from "./routes/Trending";
+import Favorites from "./routes/Favorites";
+import MyBooks from "./routes/MyBooks";
 import BookInfo from "./routes/BookInfo";
 
 
@@ -12,15 +12,16 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-      <Route path="/" element={<Nav />}>
-      <Route index element={<Home />} />
-      <Route path="/bookinfo/:id" element={<BookInfo />} />
-          <Route path="subjects" element={<Subjects />} />
-          <Route path="trending" element={<Trending />} />
-      </Route>
+        <Route path="/" element={<Nav />}>
+          <Route index element={<Home />} />
+          <Route path="/bookinfo/:bookId" element={<BookInfo />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/mybooks" element={<MyBooks />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )
 }
 
 export default App
+

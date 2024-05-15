@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-// Ändra efter hur API ser ut
 interface data {
     id: number;
     title: string;
