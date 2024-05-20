@@ -1,55 +1,19 @@
-/* import { useContext} from "react";
-import { SearchContext } from "../searchContext.tsx/SearchContext"; 
+import { useState, useContext, useEffect } from "react";
+import { SearchContext } from "../searchContext.tsx/SearchContext";
 import { FavoriteContext } from "../FavoriteContext/FavoriteContext";
 import BookCard from "../BookCard/BookCard";
-import { MdFavoriteBorder, MdFavorite} from "react-icons/md";
-
-
-const SearchResultList = () => {
-  const { searchResults } = useContext(SearchContext);
-  const { toggleFavorite, markAsRead} = useContext(FavoriteContext);
-
-  return (
-    <div className="books-container">
-      {searchResults && searchResults.map((book, index) => (
-        <div key={index}>
-          <BookCard
-            key={index}
-            title={book.title}
-            author={Array.isArray(book.author) ? book.author : []}
-            coverId={book.coverId ?? undefined}
-            id={book.id}
-          />
-         
-          <MdFavoriteBorder 
-          onClick={() => toggleFavorite(book)}
-          
-          />
-          <button onClick={() => markAsRead(book)}>Have read</button>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-export default SearchResultList;
-
- */
-
-import { useState, useContext } from "react";
-import { SearchContext } from "../searchContext.tsx/SearchContext"; 
-import { FavoriteContext } from "../FavoriteContext/FavoriteContext";
-import BookCard from "../BookCard/BookCard";
-import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
+import FavoriteBtn from "../Btn/FavoriteBtn/FavoriteBtn";
+import ReadBtn from "../Btn/ReadBtn/ReadBtn";
+import "../Btn/Btn.scss"
 
 const SearchResultList = () => {
   const { searchResults } = useContext(SearchContext);
   const { toggleFavorite, markAsRead, favoriteBooks } = useContext(FavoriteContext);
-  
+
   const [favoritesMap, setFavoritesMap] = useState(new Map());
-  
+
   // Uppdatera favoritesMap baserat på favoriteBooks när komponenten laddas
-  useState(() => {
+  useEffect(() => {
     const newFavoritesMap = new Map();
     favoriteBooks.forEach(book => {
       newFavoritesMap.set(book.id, true);
@@ -57,7 +21,7 @@ const SearchResultList = () => {
     setFavoritesMap(newFavoritesMap);
   }, [favoriteBooks]);
 
-  const isFavorite = (bookId: string) => {
+  const isFavorite = (bookId) => {
     return favoritesMap.get(bookId) || false;
   };
 
@@ -71,25 +35,25 @@ const SearchResultList = () => {
   return (
     <div className="books-container">
       {searchResults && searchResults.map((book, index) => (
-        <div  className="card">
-          <div className="icons-container">
-          {isFavorite(book.id) ? (
-            <MdFavorite onClick={() => handleToggleFavorite(book)} className="favorite-icon"/>
-          ) : (
-            <MdFavoriteBorder onClick={() => handleToggleFavorite(book)} className="favorite-icon"/>
-          )}
-          <button onClick={() => markAsRead(book)}>Have read</button>
-          </div>
+        <div >
+          
           <BookCard
-            key={index}
             title={book.title}
             author={Array.isArray(book.author) ? book.author : []}
             coverId={book.coverId ?? undefined}
             id={book.id}
           />
-          
+          <div className="icons-container">
+            <FavoriteBtn 
+              isFavorite={isFavorite(book.id)} 
+              onToggle={() => handleToggleFavorite(book)} 
+            />
+            <ReadBtn onMarkAsRead={() => markAsRead(book)} />
+          </div>
         </div>
+        
       ))}
+      
     </div>
   );
 };

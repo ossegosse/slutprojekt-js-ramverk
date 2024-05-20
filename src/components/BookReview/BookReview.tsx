@@ -28,7 +28,7 @@ const BookReview = () => {
         <div className="favorite-books-list">
           
           {booksRead.map((book, index) => (
-            <div className="card">
+            <div >
               <BookCard
                 key={index}
                 title={book.title}

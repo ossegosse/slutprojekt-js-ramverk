@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useFetchData from "../../hooks/useFetchData";
 import "./Searchbar.scss";
+import Loader from "../Loader/Loader";
 
 const Searchbar = () => {
   const [input, setInput] = useState("");
@@ -30,16 +31,7 @@ const Searchbar = () => {
         <button type="submit">Search</button>
       </form>
       {loading && (
-        <div className="lds-roller">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+        <Loader/>
       )}
     </div>
   );

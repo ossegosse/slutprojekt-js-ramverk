@@ -1,9 +1,10 @@
 import { Outlet, Link } from "react-router-dom";
+import logo from "../assets/bookmark-logo.png"
 const Nav = () => {
     return (
       <>
         <header className="header">
-          <h1>Library</h1>
+        <Link to="/"><img src={logo} alt="Book Mark Logo" /></Link>
         <nav>
           <ul>
             <li>
