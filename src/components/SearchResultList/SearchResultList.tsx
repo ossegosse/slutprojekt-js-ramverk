@@ -4,18 +4,19 @@ import { FavoriteContext } from "../FavoriteContext/FavoriteContext";
 import BookCard from "../BookCard/BookCard";
 import FavoriteBtn from "../Btn/FavoriteBtn/FavoriteBtn";
 import ReadBtn from "../Btn/ReadBtn/ReadBtn";
-import "../Btn/Btn.scss"
+import "../Btn/Btn.scss";
 
 const SearchResultList = () => {
   const { searchResults } = useContext(SearchContext);
-  const { toggleFavorite, markAsRead, favoriteBooks } = useContext(FavoriteContext);
+  const { toggleFavorite, markAsRead, favoriteBooks } =
+    useContext(FavoriteContext);
 
   const [favoritesMap, setFavoritesMap] = useState(new Map());
 
   // Uppdatera favoritesMap baserat på favoriteBooks när komponenten laddas
   useEffect(() => {
     const newFavoritesMap = new Map();
-    favoriteBooks.forEach(book => {
+    favoriteBooks.forEach((book) => {
       newFavoritesMap.set(book.id, true);
     });
     setFavoritesMap(newFavoritesMap);
@@ -34,26 +35,27 @@ const SearchResultList = () => {
 
   return (
     <div className="books-container">
-      {searchResults && searchResults.map((book, index) => (
-        <div >
-          
-          <BookCard
-            title={book.title}
-            author={Array.isArray(book.author) ? book.author : []}
-            coverId={book.coverId ?? undefined}
-            id={book.id}
-          />
-          <div className="icons-container">
-            <FavoriteBtn 
-              isFavorite={isFavorite(book.id)} 
-              onToggle={() => handleToggleFavorite(book)} 
-            />
-            <ReadBtn onMarkAsRead={() => markAsRead(book)} />
+      {searchResults &&
+        searchResults.map((book, index) => (
+          <div>
+            
+
+              <BookCard
+                title={book.title}
+                author={Array.isArray(book.author) ? book.author : []}
+                coverId={book.coverId ?? undefined}
+                id={book.id}
+              />
+            
+            <div className="icons-container">
+              <FavoriteBtn
+                isFavorite={isFavorite(book.id)}
+                onToggle={() => handleToggleFavorite(book)}
+              />
+              <ReadBtn onMarkAsRead={() => markAsRead(book)} />
+            </div>
           </div>
-        </div>
-        
-      ))}
-      
+        ))}
     </div>
   );
 };

@@ -65,7 +65,7 @@ img:hover {
   
     .card {
         width: 15rem;
-        height: 25rem;
+        height: 27rem;
         margin: 1rem;
         border-radius: 0.313rem;
         box-shadow: 0.2px 4px 5px black;
@@ -73,6 +73,7 @@ img:hover {
         overflow: hidden;
         background: white;
         transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
         
         img {
           width: 15rem;

@@ -7,6 +7,9 @@ interface Book {
     coverId?: number;
     review?: string;
     rating?: number;
+    description?: string;
+    genre?: string[];
+    publishDate?: string;
 }
 
 interface FavoriteContextType {

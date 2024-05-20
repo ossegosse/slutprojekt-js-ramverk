@@ -52,6 +52,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 3rem;
+    margin-bottom: 2rem;
 }
 
 .mybooks-container {
@@ -61,10 +62,13 @@
     justify-content: center;
     align-items: center;
     gap: 3rem;
-   
     padding: 2rem;
     h2 {
         font-size: 2em;
+    }
+    p {
+        font-size: 1.5em;
+        font-style: italic;
     }
 }
 
@@ -73,5 +77,6 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 5rem;
+   
 }
 
