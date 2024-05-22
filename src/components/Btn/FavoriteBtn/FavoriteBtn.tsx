@@ -1,6 +1,11 @@
 import { MdFavoriteBorder, MdFavorite } from 'react-icons/md';
 
-const FavoriteBtn = ({ isFavorite, onToggle }) => {
+interface FavoriteBtnProps {
+  isFavorite: boolean;
+  onToggle: () => void;
+}
+
+const FavoriteBtn: React.FC<FavoriteBtnProps> = ({ isFavorite, onToggle }) => {
   return (
     <>
       {isFavorite ? (

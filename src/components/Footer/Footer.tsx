@@ -4,7 +4,7 @@ const Footer = () => {
 
     return (
         <div className="footer-container">
-            <p>Credit to: <span>openlibrary.org</span></p>
+            <p>Credit to <span>openlibrary.org</span> </p>
         </div>
     )
 }

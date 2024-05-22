@@ -1,13 +1,7 @@
 import "./BookCard.scss";
 import useFetchId from "../../hooks/useFetchId";
 import Loader from "../Loader/Loader";
-
-interface BookCardProps {
-  title: string;
-  author: string[];
-  coverId?: number;
-  id: string;
-}
+import { BookCardProps } from "../../Types/types"
 
 const BookCard: React.FC<BookCardProps> = ({ title, author, coverId, id }) => {
   const bookData = useFetchId(id);

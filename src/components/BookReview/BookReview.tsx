@@ -10,8 +10,6 @@ const BookReview = () => {
   const [rating, setRating] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const selectedBook = booksRead.find((book) => book.id === selectedBookId);
-
   const handleSaveReview = () => {
     if (selectedBookId) {
       addReview(selectedBookId, reviewText, rating);
@@ -21,6 +19,9 @@ const BookReview = () => {
       setIsModalOpen(false); // Stäng modalen efter att recensionen har sparats
     }
   };
+
+  const cols: number = 30;
+  const rows: number = 10;
 
   return (
     <div>
@@ -71,8 +72,8 @@ const BookReview = () => {
             <textarea
               value={reviewText}
               onChange={(e) => setReviewText(e.target.value)}
-              cols="30"
-              rows="10"
+              cols={cols}
+              rows={rows}
               placeholder="Write your review..."
             ></textarea>
             <div>

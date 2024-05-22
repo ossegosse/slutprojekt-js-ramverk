@@ -12,7 +12,7 @@ const useFetchData = () => {
       .then((res) => res.json())
       .then((json) => {
         if (json.docs && Array.isArray(json.docs)) {
-          const results = json.docs.map((book) => ({
+          const results = json.docs.map((book: any) => ({
             id: book.key.split("/").pop(),
             title: book.title,
             author: book.author_name || [],

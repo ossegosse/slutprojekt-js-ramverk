@@ -1,26 +1,5 @@
 import React, { createContext, useState, ReactNode } from "react";
-
-interface Book {
-    id: string;
-    title: string;
-    author: string[];
-    coverId?: number;
-    review?: string;
-    rating?: number;
-    description?: string;
-    genre?: string[];
-    publishDate?: string;
-}
-
-interface FavoriteContextType {
-    favoriteBooks: Book[];
-    booksRead: Book[];
-    setFavoriteBooks: React.Dispatch<React.SetStateAction<Book[]>>;
-    setBooksRead: React.Dispatch<React.SetStateAction<Book[]>>; 
-    toggleFavorite: (book: Book) => void;
-    markAsRead: (book: Book) => void;
-    addReview: (id: string, review: string, rating: number) => void;
-}
+import { Book, FavoriteContextType } from "../../Types/types"
 
 export const FavoriteContext = createContext<FavoriteContextType>({
     favoriteBooks: [],

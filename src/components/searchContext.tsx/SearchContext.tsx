@@ -1,16 +1,18 @@
-import { createContext, useState } from "react";
+import { createContext, useState, ReactNode } from "react";
 
-// Definiera en typ för contextvärdena
 interface SearchContextType {
-  searchResults: any[]; // Antag att searchResults är en array av något
+  searchResults: any[];
   setSearchResults: React.Dispatch<React.SetStateAction<any[]>>;
 }
 
-// Använd den definierade typen som ett generiskt typargument
+interface SearchContextProviderProps {
+  children: ReactNode;
+}
+
 export const SearchContext = createContext<SearchContextType>({ searchResults: [], setSearchResults: () => {} });
 
-export const SearchContextProvider = ({ children }) => {
-  const [searchResults, setSearchResults] = useState<any[]>([]); // Specifiera vilken typ useState ska ha
+export const SearchContextProvider: React.FC<SearchContextProviderProps> = ({ children }) => {
+  const [searchResults, setSearchResults] = useState<any[]>([]); 
 
   return (
     <SearchContext.Provider value={{ searchResults, setSearchResults }}>

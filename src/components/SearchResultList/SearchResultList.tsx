@@ -4,6 +4,7 @@ import { FavoriteContext } from "../FavoriteContext/FavoriteContext";
 import BookCard from "../BookCard/BookCard";
 import FavoriteBtn from "../Btn/FavoriteBtn/FavoriteBtn";
 import ReadBtn from "../Btn/ReadBtn/ReadBtn";
+import { Book } from "../../Types/types"
 import "../Btn/Btn.scss";
 
 const SearchResultList = () => {
@@ -13,7 +14,6 @@ const SearchResultList = () => {
 
   const [favoritesMap, setFavoritesMap] = useState(new Map());
 
-  // Uppdatera favoritesMap baserat på favoriteBooks när komponenten laddas
   useEffect(() => {
     const newFavoritesMap = new Map();
     favoriteBooks.forEach((book) => {
@@ -22,11 +22,11 @@ const SearchResultList = () => {
     setFavoritesMap(newFavoritesMap);
   }, [favoriteBooks]);
 
-  const isFavorite = (bookId) => {
+  const isFavorite = (bookId: string) => {
     return favoritesMap.get(bookId) || false;
   };
 
-  const handleToggleFavorite = (book) => {
+  const handleToggleFavorite = (book: Book) => {
     toggleFavorite(book);
     const newFavoritesMap = new Map(favoritesMap);
     newFavoritesMap.set(book.id, !isFavorite(book.id));
@@ -36,10 +36,8 @@ const SearchResultList = () => {
   return (
     <div className="books-container">
       {searchResults &&
-        searchResults.map((book, index) => (
+        searchResults.map((book) => (
           <div>
-            
-
               <BookCard
                 title={book.title}
                 author={Array.isArray(book.author) ? book.author : []}
