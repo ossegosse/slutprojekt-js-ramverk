@@ -1,3 +1,7 @@
+@import "../Scss/mixins";
+.have-read-container {
+  @include flex-center-column;
+}
 
 
 .modal-overlay {

@@ -16,7 +16,7 @@ const BookReview = () => {
       setReviewText("");
       setRating(0);
       setSelectedBookId(null);
-      setIsModalOpen(false); // Stäng modalen efter att recensionen har sparats
+      setIsModalOpen(false); 
     }
   };
 
@@ -28,7 +28,7 @@ const BookReview = () => {
       {booksRead.length > 0 ? (
         <div className="favorite-books-list">
           {booksRead.map((book, index) => (
-            <div>
+            <div className="have-read-container">
               <BookCard
                 key={index}
                 title={book.title}
@@ -36,7 +36,9 @@ const BookReview = () => {
                 coverId={book.coverId}
                 id={book.id}
               />
+              {book.review && 
               <div className="review-container">
+                
                 {book.review && (
                   <div>
                     <h3>Review:</h3>
@@ -50,6 +52,7 @@ const BookReview = () => {
                   </div>
                 )}
               </div>
+              }
               <button
                 onClick={() => {
                   setSelectedBookId(book.id);
