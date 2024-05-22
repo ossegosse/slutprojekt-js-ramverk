@@ -1,6 +1,8 @@
 import { Outlet, Link } from "react-router-dom";
-import logo from "../assets/bookmark-logo.png"
-const Nav = () => {
+import logo from "/src/assets/bookmark-logo.png"
+import "./Header.scss"
+
+const Header = () => {
     return (
       <>
         <header className="header">
@@ -19,10 +21,9 @@ const Nav = () => {
           </ul>
         </nav>
         </header>
-  
         <Outlet />
       </>
     )
   };
   
-  export default Nav;
+  export default Header;

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { FavoriteContext } from "../FavoriteContext/FavoriteContext";
 import BookCard from "../BookCard/BookCard";
-import "./BookReview.scss"
+import "./BookReview.scss";
 
 const BookReview = () => {
   const { booksRead, addReview } = useContext(FavoriteContext);
@@ -10,7 +10,7 @@ const BookReview = () => {
   const [rating, setRating] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const selectedBook = booksRead.find(book => book.id === selectedBookId);
+  const selectedBook = booksRead.find((book) => book.id === selectedBookId);
 
   const handleSaveReview = () => {
     if (selectedBookId) {
@@ -26,9 +26,8 @@ const BookReview = () => {
     <div>
       {booksRead.length > 0 ? (
         <div className="favorite-books-list">
-          
           {booksRead.map((book, index) => (
-            <div >
+            <div>
               <BookCard
                 key={index}
                 title={book.title}
@@ -38,22 +37,26 @@ const BookReview = () => {
               />
               <div className="review-container">
                 {book.review && (
-                <div>
-                  <h3>Review:</h3>
-                  <p>{book.review}</p>
-                </div>
-              )}
-              {book.rating && (
-                <div>
-                  <h3>Rating:</h3>
-                  <p>{book.rating}/5</p>
-                </div>
-              )}
+                  <div>
+                    <h3>Review:</h3>
+                    <p>{book.review}</p>
+                  </div>
+                )}
+                {book.rating && (
+                  <div>
+                    <h3>Rating:</h3>
+                    <p>{book.rating}/5</p>
+                  </div>
+                )}
               </div>
-              <button onClick={() => {
-                setSelectedBookId(book.id);
-                setIsModalOpen(true);
-              }}>Create Review</button>
+              <button
+                onClick={() => {
+                  setSelectedBookId(book.id);
+                  setIsModalOpen(true);
+                }}
+              >
+                Create Review
+              </button>
             </div>
           ))}
         </div>
@@ -74,7 +77,10 @@ const BookReview = () => {
             ></textarea>
             <div>
               <label>Rating:</label>
-              <select value={rating} onChange={(e) => setRating(Number(e.target.value))}>
+              <select
+                value={rating}
+                onChange={(e) => setRating(Number(e.target.value))}
+              >
                 <option value={0}>Select rating</option>
                 <option value={1}>1</option>
                 <option value={2}>2</option>

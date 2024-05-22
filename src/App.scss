@@ -1,35 +1,7 @@
-.header {
-    padding: 0.2rem 3rem 0.2rem 3rem;
-    background-color: #2F4858;
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    img {
-        width: 100px;
-        border-radius: 15px;
-        margin-top: 0.2rem;
-    }
-    ul {
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        gap: 2rem;
-        font-size: 1.2em;
-        a {
-            text-decoration: none;
-            color: white;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    }
-}
+@import "/src/components/Scss/mixins";
 
 .main-home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    @include flex-center-column;
     color: black;
     text-align: center;
     .search-container {
@@ -38,8 +10,14 @@
         background-color: white;
         border-radius: 10px;
         width: 60%;
+        box-shadow: 0.2px 4px 5px black;
+        h1 {
+            margin-bottom: 1.5rem;
+        }
         p {
             font-size: 1.2em;
+            width: 28rem;
+            margin: auto;
         }
         input {
             margin: 2rem 0 2rem 0;
@@ -56,27 +34,18 @@
 }
 
 .mybooks-container {
-    display: flex;
-    flex-direction: column;
+    @include flex-center-column;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     gap: 3rem;
     padding: 2rem;
     h2 {
         font-size: 2em;
-    }
-    p {
-        font-size: 1.5em;
-        font-style: italic;
+        border-bottom: solid 1px black;
     }
 }
 
 .favorite-books-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    @include flex-center-wrap;
     gap: 5rem;
-   
 }
 

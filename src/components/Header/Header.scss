@@ -1,0 +1,27 @@
+.header {
+    padding: 1.3rem;
+    background-color: #2F4858;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img {
+        width: 100px;
+        border-radius: 50%;
+        top: 0.5rem;
+        position: absolute;
+    }
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        font-size: 1.2em;
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+}
