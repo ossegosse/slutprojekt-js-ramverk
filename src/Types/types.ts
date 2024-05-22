@@ -17,6 +17,7 @@ export interface BookCardProps {
     description?: string;
     genre?: string[];
     publishDate?: string;
+    excerpt?: string;
 }
 
 export interface FavoriteContextType {

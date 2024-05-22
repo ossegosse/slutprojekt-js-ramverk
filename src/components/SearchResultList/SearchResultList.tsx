@@ -1,13 +1,14 @@
-import { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { SearchContext } from "../searchContext.tsx/SearchContext";
 import { FavoriteContext } from "../FavoriteContext/FavoriteContext";
 import BookCard from "../BookCard/BookCard";
 import FavoriteBtn from "../Btn/FavoriteBtn/FavoriteBtn";
 import ReadBtn from "../Btn/ReadBtn/ReadBtn";
-import { Book } from "../../Types/types"
+import { Book } from "../../Types/types";
 import "../Btn/Btn.scss";
 
-const SearchResultList = () => {
+const SearchResultList: React.FC = () => {
   const { searchResults } = useContext(SearchContext);
   const { toggleFavorite, markAsRead, favoriteBooks } =
     useContext(FavoriteContext);
@@ -33,18 +34,21 @@ const SearchResultList = () => {
     setFavoritesMap(newFavoritesMap);
   };
 
+  console.log(searchResults); // Logga för att se data i searchResults
+
   return (
     <div className="books-container">
       {searchResults &&
-        searchResults.map((book) => (
-          <div>
+        searchResults.map((book: Book) => (
+          <div key={book.id}>
+            <Link to={`/bookinfo/${book.id}`}>
               <BookCard
                 title={book.title}
-                author={Array.isArray(book.author) ? book.author : []}
+                author={book.author} // Säkerställ att författardatan skickas korrekt
                 coverId={book.coverId ?? undefined}
                 id={book.id}
               />
-            
+            </Link>
             <div className="icons-container">
               <FavoriteBtn
                 isFavorite={isFavorite(book.id)}
@@ -59,3 +63,5 @@ const SearchResultList = () => {
 };
 
 export default SearchResultList;
+
+

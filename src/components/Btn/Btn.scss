@@ -15,13 +15,31 @@ button:hover {
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    border-bottom: black solid 1px;
 }
 
 .favorite-icon {
-    font-size: 1.2em;
+    font-size: 2em;
   }
-.favorite-icon:hover {
+
+.favorite-icon:hover, .have-read-btn:hover {
     cursor: pointer;
     transform: scale(1.3);
     transition: 0.5s;
 }
+.have-read-btn {
+    font-size: 2em;
+}
+
+.have-read-btn.white {
+    color: black; 
+  }
+
+  .have-read-btn.black {
+    color: white; 
+    background-color: black;
+    padding: 5px; 
+    border-radius: 40%;
+  }
+  
+ 

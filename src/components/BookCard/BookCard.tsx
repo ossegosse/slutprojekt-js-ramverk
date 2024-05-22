@@ -1,21 +1,8 @@
+import React from "react";
 import "./BookCard.scss";
-import useFetchId from "../../hooks/useFetchId";
-import Loader from "../Loader/Loader";
-import { BookCardProps } from "../../Types/types"
+import { Book } from "../../Types/types";
 
-const BookCard: React.FC<BookCardProps> = ({ title, author, coverId, id }) => {
-  const bookData = useFetchId(id);
-
-  console.log(id)
-  if (!id) {
-    return <Loader/>
-
-  }
-
-  if (!bookData) {
-    return <Loader/>
-  }
-
+const BookCard: React.FC<Book> = ({ title, author, coverId }) => {
   return (
     <div className="card">
       <div className="card-banner">
@@ -30,20 +17,22 @@ const BookCard: React.FC<BookCardProps> = ({ title, author, coverId, id }) => {
       </div>
       <h3>{title}</h3>
       <div className="card-footer">
-  {author && author.length > 0 ? (
-    <span>
-      Author:{" "}
-      <span className="author-name">
-        {author.join(", ")}
-      </span>
-    </span>
-  ) : (
-    <span className="author-name">Unknown</span>
-  )}
-</div>
+        {author && author.length > 0 ? (
+          <span>
+            Author:{" "}
+            <span className="author-name">
+              {author.join(", ")}
+            </span>
+          </span>
+        ) : (
+          <span className="author-name">Unknown</span>
+        )}
+      </div>
     </div>
   );
 };
 
 export default BookCard;
+
+
 

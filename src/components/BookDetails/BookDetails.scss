@@ -1,0 +1,30 @@
+@import "../Scss/mixins";
+@import "../Scss/fonts";
+
+.book-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    margin-left: 8rem;
+    img {
+        width: 20rem;
+        padding: 1rem;
+        border: black solid 1px;
+        border-radius: 10px;
+        box-shadow: 0 0 7px;
+    }
+    .book-details {
+        width: 40rem;
+        border-left: black solid 2px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    p {
+        font-family: $secondary-font;
+    }
+
+}
