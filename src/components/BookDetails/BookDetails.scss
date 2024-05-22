@@ -10,10 +10,12 @@
     margin-left: 8rem;
     img {
         width: 20rem;
-        padding: 1rem;
+        padding: 0.3rem;
         border: black solid 1px;
         border-radius: 10px;
-        box-shadow: 0 0 7px;
+        background-color: white;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.19); 
+             
     }
     .book-details {
         width: 40rem;
