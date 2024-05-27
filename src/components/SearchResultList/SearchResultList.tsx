@@ -44,7 +44,7 @@ const SearchResultList: React.FC = () => {
             <Link to={`/bookinfo/${book.id}`}>
               <BookCard
                 title={book.title}
-                author={book.author} // Säkerställ att författardatan skickas korrekt
+                author={book.author} 
                 coverId={book.coverId ?? undefined}
                 id={book.id}
               />
