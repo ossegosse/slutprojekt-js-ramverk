@@ -1,41 +1,6 @@
-/* import { useEffect, useState } from "react";
-
-const useFetchId = (id: string) => {
-  const [bookData, setBookData] = useState<any>(null);
-
-  useEffect(() => {
-    if (!id) {
-      return;
-    }
-
-    const fetchId = async () => {
-      try {
-        const response = await fetch(`https://openlibrary.org/works/${id}.json`);
-        if (!response.ok) {
-          throw new Error("Failed to fetch book data");
-        }
-        const data = await response.json();
-        setBookData(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchId();
-
-    return () => {
-      setBookData(null);
-    };
-  }, [id]);
-
-  return bookData;
-};
-
-export default useFetchId; */
-
 
 import { useEffect, useState } from "react";
-import { Book } from "../Types/types"; // Anpassa sökvägen till där du sparar dina typer
+import { Book } from "../Types/types"; 
 
 const useFetchId = (id: string) => {
   const [bookData, setBookData] = useState<Book | null>(null);
@@ -53,7 +18,6 @@ const useFetchId = (id: string) => {
         }
         const data = await response.json();
 
-        // Hantera författardata korrekt
         const authors = data.authors ? await Promise.all(data.authors.map(async (authorObj: any) => {
           const authorResponse = await fetch(`https://openlibrary.org${authorObj.author.key}.json`);
           const authorData = await authorResponse.json();

@@ -15,5 +15,6 @@ Here you can search for your favourite books and authors, add books to favorites
 - Vite
 - Typescript
 - SCSS
+- React Router
 
 // Ossian

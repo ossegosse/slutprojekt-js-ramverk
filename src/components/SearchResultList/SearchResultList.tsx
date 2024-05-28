@@ -34,8 +34,6 @@ const SearchResultList: React.FC = () => {
     setFavoritesMap(newFavoritesMap);
   };
 
-  console.log(searchResults); // Logga för att se data i searchResults
-
   return (
     <div className="books-container">
       {searchResults &&

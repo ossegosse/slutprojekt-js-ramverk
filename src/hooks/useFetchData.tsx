@@ -3,7 +3,7 @@ import { SearchContext } from "../components/searchContext.tsx/SearchContext";
 
 
 const useFetchData = () => {
-  const { setSearchResults } = useContext(SearchContext); // Hämta setSearchResults från din context
+  const { setSearchResults } = useContext(SearchContext); 
   const [loading, setLoading] = useState(false);
 
   const fetchData = (value: string) => {
