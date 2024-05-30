@@ -5,6 +5,9 @@ import Loader from "../Loader/Loader";
 
 const BookDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  if (!id) {
+    return <div>Error: No ID provided</div>;
+  }
   const bookData = useFetchId(id);
 
   if (!bookData) {
